@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hlcoding-standard-project
+  mvc:
+    view:
+      suffix: .html
+  web:
+    resources:
+      static-locations: classpath:/templates
+
+server:
+  port: 8080
+
+

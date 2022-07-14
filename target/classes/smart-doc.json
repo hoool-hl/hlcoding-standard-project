@@ -1,0 +1,11 @@
+{
+  "serverUrl": "http://localhost:8080",
+  "projectName": "hlcoding-standard-project",
+  "outPath": "src/main/resources/templates/doc",
+  "allInOne": true,
+  "allInOneDocFileName": "index.html",
+  "createDebugPage": true,
+  "responseBodyAdvice": {
+    "className": "com.hlcoding.framework.restful.RestResult"
+  }
+}
