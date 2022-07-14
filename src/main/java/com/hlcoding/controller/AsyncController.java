@@ -43,6 +43,7 @@ public class AsyncController {
         return "detail" + id;
     }
 
+
     /**
      * 测试请求
      * @param str 用户名字
