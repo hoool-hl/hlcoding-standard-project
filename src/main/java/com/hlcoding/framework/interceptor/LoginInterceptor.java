@@ -1,9 +1,13 @@
 package com.hlcoding.framework.interceptor;
+import com.hlcoding.framework.annos.SkipUserAuth;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
 
 /**
@@ -19,6 +23,13 @@ public class LoginInterceptor implements HandlerInterceptor{
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (handler instanceof HandlerMethod){
+            HandlerMethod handlerMethod = (HandlerMethod)handler;
+            SkipUserAuth methodAnnotation = handlerMethod.getMethodAnnotation(SkipUserAuth.class);
+            if (methodAnnotation != null){
+                System.out.println("不用权限校验");
+            }
+        }
         System.out.println("拦截器");
         return true;
     }
